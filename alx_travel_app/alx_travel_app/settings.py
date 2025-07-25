@@ -13,14 +13,6 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import os
 import environ
-# settings.py
-from decouple import config
-
-# Chapa Configuration
-CHAPA_SECRET_KEY = config('CHASECK_TEST-42zt3Flv0bgeBDAIWOiJhWKaHtlsXqfi')
-CHAPA_API_URL = config('https://your-ngrok-url.ngrok.io/api/payments/webhook/')
-CHAPA_VERIFY_URL = config('CHAPA_VERIFY_URL')
-FRONTEND_URL = config('FRONTEND_URL')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -52,7 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_celery_results',
     
     
     'rest_framework',
@@ -60,22 +51,6 @@ INSTALLED_APPS = [
     'corsheaders',
     'listings',
 ]
-# Celery Configuration
-CELERY_BROKER_URL = 'amqp://guest:guest@localhost:5672//'
-CELERY_RESULT_BACKEND = 'django-db'
-CELERY_ACCEPT_CONTENT = ['json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'UTC'
-
-# Email Configuration
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'  # Replace with your SMTP server
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'Kelvinkigenkosgei@gmail.com'  # Replace with your email
-EMAIL_HOST_PASSWORD = 'Kelvin@6580'  # Replace with your app password
-DEFAULT_FROM_EMAIL = 'Kelvinkigenkosgei@gmail.com'
 
 
 MIDDLEWARE = [

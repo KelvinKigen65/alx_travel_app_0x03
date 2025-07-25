@@ -21,6 +21,8 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.http import JsonResponse
+from django.views.generic import RedirectView
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
@@ -39,7 +41,27 @@ schema_view = get_schema_view(
     permission_classes=(permissions.AllowAny,),
 )
 
+def api_root(request):
+    """
+    Welcome message for the API root
+    """
+    return JsonResponse({
+        'message': 'Welcome to ALX Travel App API',
+        'version': 'v1',
+        'endpoints': {
+            'admin': '/admin/',
+            'api': '/api/',
+            'swagger_docs': '/swagger/',
+            'redoc_docs': '/redoc/',
+        },
+        'status': 'active'
+    })
+
 urlpatterns = [
+    # Root URL - welcome message
+    path('', api_root, name='api-root'),
+    
+    # Admin interface
     path('admin/', admin.site.urls),
     
     # Include listings app URLs
