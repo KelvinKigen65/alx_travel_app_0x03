@@ -16,6 +16,8 @@ import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '/home/Kelvin65/alx_travel_app_0x03/media'
 
 
 env = environ.Env()
@@ -32,7 +34,7 @@ SECRET_KEY = 'django-insecure-litosrxzw3c&p11r69f2fpx+s0yl7-#)_94su1@h)+%@q338(e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ggALX.herokuapp.com']
+ALLOWED_HOSTS = ['Alx65.pythonanywhere.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -129,9 +131,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_URL = 'static/',
 
 
 # Default primary key field type
