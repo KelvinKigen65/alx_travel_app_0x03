@@ -16,8 +16,7 @@ import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-MEDIA_URL = '/media/'
-MEDIA_ROOT = '/home/Kelvin65/alx_travel_app_0x03/media'
+
 
 
 env = environ.Env()
